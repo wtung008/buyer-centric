@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action! set_listing
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
   def index
     @listings = Listing.all
   end
@@ -21,13 +21,20 @@ class ListingsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    if @listing.update(listing_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if @listing.destroy
+      redirect_to root_path
+    end
   end
 
   private
