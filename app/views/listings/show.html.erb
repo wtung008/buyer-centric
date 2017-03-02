@@ -1,6 +1,31 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<h1><%= @listing.title %></h1>
 
-
-
+<p><%= @listing.description %></p>
+<p>Offer Price: $<%= @listing.price %></p>
+<p>End Date: <%= @listing.expiration.strftime("%A %b %d %Y") %></p>
 <p>Time remaining:  <%= "#{(@listing.expiration > Time.now.utc ) ? "#{time_ago_in_words(@listing.expiration)}" : 'Expired'}" %></p>
+
+<% if @listing.image.present? %>
+  <%= image_tag @listing.image %>
+<% end %>
+
+<% if @listing.user_id == current_user.id %>
+  <h2>New Update</h2>
+  <%= form_for @update do |f| %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+    <p><%= f.label :description %></p>
+    <p><%= f.text_area :description %></p>
+    <p><%= f.label :price %></p>
+    <p><%= f.number_field :price %></p>
+    <p><%= f.label :expiration %></p>
+    <p><%= f.date_field :expiration, min: Date.today%></p>
+    <p><%= f.label :category_id %></p>
+    <p><%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Add a catgeory" %></p>
+    <%= f.hidden_field :listing_id, value: @listing.id %>
+    <p><%= f.submit "Update" %></p>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'Back', listing_path(@user) %>
