@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228192326) do
+ActiveRecord::Schema.define(version: 20170302201716) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -26,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170228192326) do
     t.datetime "expiration"
     t.integer  "category_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "seller_id"
+    t.integer  "condition_id"
   end
 
   create_table "reviews", force: :cascade do |t|
