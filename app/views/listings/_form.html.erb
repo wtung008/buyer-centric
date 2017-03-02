@@ -24,6 +24,10 @@
     <%= f.label :category_id %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "Add a catgeory" %>
   </div>
+  <div>
+    <%= f.label :condition_id %><br />
+    <%= f.collection_select :condition_id, Condition.all, :id, :name, prompt: "Add a condition" %>
+  </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
     <%= f.submit "Submit" %>
