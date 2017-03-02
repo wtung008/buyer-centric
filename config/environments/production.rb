@@ -1,3 +1,5 @@
+Rails.application.routes.default_url_options[:host] = 'appname.herokuapp.com'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -57,9 +59,26 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "BuyerCentric_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { :host => 'appname.herokuapp.com' }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp-mail.outlook.com",
+    port: 587,
+    domain: ENV["OUTLOOK_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["OUTLOOK_USERNAME"],
+    password: ENV["OUTLOOK_PASSWORD"]
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
