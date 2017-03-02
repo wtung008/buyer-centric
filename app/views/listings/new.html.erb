@@ -19,7 +19,7 @@
   </div>
   <div>
     <%= f.label :expiration %><br />
-    <%= f.datetime_local_field :expiration %>
+    <%= f.date_field :expiration, min: Date.today%>
   </div>
   <div>
     <%= f.label :category_id %><br />

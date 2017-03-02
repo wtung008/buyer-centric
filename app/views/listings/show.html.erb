@@ -1,2 +1,6 @@
 <h1>Listings#show</h1>
 <p>Find me in app/views/listings/show.html.erb</p>
+
+
+
+<p>Time remaining:  <%= "#{(@listing.expiration > Time.now.utc ) ? "#{time_ago_in_words(@listing.expiration)}" : 'Expired'}" %></p>
