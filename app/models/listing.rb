@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :category
+  belongs_to :user
   has_many :reviews
   validates :category_id, presence: true
   belongs_to :condition

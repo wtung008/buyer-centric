@@ -7,4 +7,5 @@
   <%= listing.category.name %><br />
   <%= listing.condition.name %><br />
   <%= image_tag listing.image.url(:medium) %><br />
+  <%= link_to "Listing Page", listing_path(listing) %>
 <% end %>
