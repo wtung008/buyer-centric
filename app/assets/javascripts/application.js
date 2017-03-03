@@ -26,7 +26,7 @@ $(function() {
       console.log(file);
       img.src = file.target.result;
       $('#target').html(img);
-    }
+    };
     reader.readAsDataURL(image);
     console.log(files);
   });
