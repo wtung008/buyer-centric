@@ -15,7 +15,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
     var image = files[0];
@@ -26,7 +26,7 @@ $(function() {
       console.log(file);
       img.src = file.target.result;
       $('#target').html(img);
-    };
+    }
     reader.readAsDataURL(image);
     console.log(files);
   });
