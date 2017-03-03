@@ -1,5 +1,4 @@
 <h1>Listings Page</h1>
-<%= link_to "New Listing", new_listing_path %><br />
 <% @listings.order("id DESC").limit(50).each do |listing| %>
   <%= listing.title %><br />
   <%= listing.description %><br />
