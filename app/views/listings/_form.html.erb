@@ -30,7 +30,9 @@
   </div>
   <div>
     <%= f.label :image %></br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, id: 'pictureInput' %>
+  </div>
+  <div id="target">
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
