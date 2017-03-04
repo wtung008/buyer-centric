@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @offer = Offer.new
   end
 
   def new
@@ -14,6 +15,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
       redirect_to root_path
     else
