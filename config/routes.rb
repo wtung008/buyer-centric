@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :reviews, only: [:create]
+  resources :reviews
   resources :offers, only: [:create]
 
   root 'listings#index'

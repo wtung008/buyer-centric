@@ -9,22 +9,39 @@
   <%= image_tag @listing.image %><br />
 <% end %>
 
-<% if user_signed_in? %>
-  <% if current_user.id == @listing.user.id %>
-    <%= link_to "Edit", edit_listing_path %> | <%= link_to "Delete", listing_path, data: { confirm: "Are you sure" }, method: :delete %><br />
-  <% end %>
-<% end %>
+<% if !@listing.seller_id.present? %>
+  <% if user_signed_in? %>
+    <% if current_user.id == @listing.user.id %>
+      <%= link_to "Edit", edit_listing_path %> | <%= link_to "Delete", listing_path, data: { confirm: "Are you sure" }, method: :delete %><br />
+    <% end %>
 
-<% if !@listing.offers.pluck(:seller_id).include?(current_user.id) %>
-  <%= form_for @offer do |f| %>
-    <%= f.hidden_field :listing_id, value: @listing.id %>
-    <%= f.hidden_field :seller_id, value: current_user.id %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
+    <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.user.id != current_user.id %>
+      <%= form_for @offer do |f| %>
+        <%= f.hidden_field :listing_id, value: @listing.id %>
+        <%= f.hidden_field :seller_id, value: current_user.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
 
-<% @listing.offers.each do |offer| %>
-  <p><%= link_to offer.seller.first_name, offer.seller %></p>
+  <% end %>
+
+  <% @listing.offers.each do |offer| %>
+    <% if offer.seller.first_name.present? %>
+      <p><%= link_to offer.seller.first_name, offer.seller %></p>
+    <% else %>
+      <p><%= link_to "Seller", offer.seller %></p>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if @listing.user.id == current_user.id %>
+        <%= form_for @listing do |f| %>
+          <%= f.hidden_field :seller_id, value: offer.seller.id %>
+          <%= f.submit "Accept" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to "Seller Page", (User.where("id = ?", @listing.seller_id).to_a).first %><br />
 <% end %>
 
 <%= link_to "Listing Owner", @listing.user %><br />
