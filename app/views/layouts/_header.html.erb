@@ -1,11 +1,43 @@
-<% if user_signed_in? %>
-  <%= link_to "Home", root_path %>
-  <%= link_to "New listing", new_listing_path %>
-  <%= link_to "Account", current_user %>
-  <%= link_to "Settings", edit_user_registration_path %>
-  <%= link_to "Logout", destroy_user_session_path, data: { confirm: "Are you sure"}, method: :delete %>
-<% else %>
-  <%= link_to "Home", root_path %>
-  <%= link_to "Join", new_user_registration_path %>
-  <%= link_to "Login", new_user_session_path %>
-<% end %>
+<nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
+
+  <div class="container">
+
+    <div class="nav navbar-header clearfix">
+
+    <%= link_to "AppName", root_path, class: "navbar-brand" %>
+
+    <form class="navbar-form form-inline input-group">
+      <input class="form-control searchbar" type="text" placeholder="Search">
+      <button class="btn searchbar" type="submit"></button>
+    </form>
+
+    </div>
+
+    <ul class="nav navbar-nav">
+
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Account", current_user, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+
+  <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  </div>
+</nav>
