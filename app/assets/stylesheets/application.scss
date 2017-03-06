@@ -16,13 +16,17 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
- body {
-   padding-top: 50px;
+body {
+   padding-top: 150px;
  }
 
- nav {
-   height: 50px;
+nav.sps--abv {
+   height: 150px;
    width: 100%;
+}
+
+nav.sps--blw {
+  height: 50px;
 }
 
 div.nav {

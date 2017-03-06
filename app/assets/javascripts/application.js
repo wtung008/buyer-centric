@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
 $(document).on('turbolinks:load', function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
