@@ -14,7 +14,7 @@
   </div>
   <div>
     <%= f.label :price%><br />
-    <%= f.number_field :price %>
+    <%= f.number_field :price, min: '0', step: 'any' %>
   </div>
   <div>
     <%= f.label :expiration %><br />
