@@ -10,23 +10,50 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
+*= require_tree .
+ *= require_self
  */
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 body {
-   padding-top: 150px;
+   padding-top: 200px;
  }
 
-nav.sps--abv {
+ .navbar-brand {
+   color: white;
+ }
+
+ nav#navigation {
+   background-color: purple;
+   z-index: 1;
+ }
+
+ nav#filter {
+   background-color: white;
+ }
+
+.sps--abv {
    height: 150px;
+   -moz-transition: height .5s;
+   -ms-transition: height .5s;
+   -webkit-transition: height .5s;
+   transition: height .5s;
    width: 100%;
 }
 
-nav.sps--blw {
+.sps--blw {
   height: 50px;
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+}
+
+nav#navigation div.container {
+  height: 100%;
+  align-items: stretch;
 }
 
 div.nav {
@@ -43,3 +70,28 @@ button.searchbar {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-left: 0;
 }
+
+ul.nav.navbar-nav {
+  padding-left: 20px;
+}
+
+a.nav-link {
+  color: white;
+}
+
+div.fixed-top {
+  z-index: 0;
+}
+
+
+// nav#filter.fixed-top {
+//   top: 150px;
+// }
+//
+// nav#filter.sps--blw {
+//   top: 50px;
+//   -moz-transition: all .5s;
+//   -ms-transition: all .5s;
+//   -webkit-transition: all .5s;
+//   transition: all .5s;
+// }

@@ -1,3 +1,22 @@
+<div class="fixed-top">
+<div class="pusher sps sps--abv"></div>
+<nav id="filter" class="navbar navbar-toggleable-md">
+
+  <div class="container">
+
+    <form class="navbar-form form-inline input-group">
+    <select name="category">
+      <option value="" selected>Category</option>
+      <option value="electronics">Electronics</option>
+      <option value="food">Food</option>
+      <option value="automobile">Automobile</option>
+    </select>
+  </form>
+
+  </div>
+</nav>
+</div>
+
 <h1>Listings Page</h1>
 <% @listings.order("id DESC").limit(50).each do |listing| %>
   <%= listing.title %><br />

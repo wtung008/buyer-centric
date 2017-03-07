@@ -53,7 +53,7 @@ var ScrollPosStyler = (function(document, window) {
         window.requestAnimationFrame(belowScrollPos);
 
       // if we were below, and are now above scroll position...
-      } else if (!onTop && scrollPosY <= scrollOffsetY) {
+    } else if (!onTop && scrollPosY <= scrollOffsetY) {
         // suspend accepting scroll events
         busy = true;
 
