@@ -1,16 +1,40 @@
 <div class="fixed-top">
 <div class="pusher sps sps--abv"></div>
-<nav id="filter" class="navbar navbar-toggleable-md">
+<nav id="filter" class="navbar navbar-toggleable-md bottom-shadow">
 
   <div class="container">
 
     <form class="navbar-form form-inline input-group">
-    <select name="category">
-      <option value="" selected>Category</option>
+
+    <select name="category" class="custom-select">
+      <option selected>Category</option>
       <option value="electronics">Electronics</option>
       <option value="food">Food</option>
       <option value="automobile">Automobile</option>
     </select>
+
+    <select name="condition" class="custom-select">
+      <option selected>Condition</option>
+      <option value="electronics">Electronics</option>
+      <option value="food">Food</option>
+      <option value="automobile">Automobile</option>
+    </select>
+
+    <select name="price" class="custom-select">
+      <option selected>Price</option>
+      <option value="electronics">Electronics</option>
+      <option value="food">Food</option>
+      <option value="automobile">Automobile</option>
+    </select>
+
+    <select name="Date" class="custom-select">
+      <option selected>Date</option>
+      <option value="electronics">Electronics</option>
+      <option value="food">Food</option>
+      <option value="automobile">Automobile</option>
+    </select>
+
+    <button type="submit" name="filter" class="btn" id="filterbtn">Filter</button>
   </form>
 
   </div>

@@ -18,7 +18,8 @@
 @import "font-awesome";
 
 body {
-   padding-top: 200px;
+   padding-top: 220px;
+   background-color: #F8F8FF;
  }
 
  .navbar-brand {
@@ -32,6 +33,12 @@ body {
 
  nav#filter {
    background-color: white;
+ }
+
+ .bottom-shadow {
+  -webkit-box-shadow: 0px 4px 23px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 23px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 23px 1px rgba(0,0,0,0.75);
  }
 
 .sps--abv {
@@ -82,6 +89,29 @@ a.nav-link {
 div.fixed-top {
   z-index: 0;
 }
+
+.custom-select {
+  border-radius: 0;
+  margin-right: 5px;
+  width: 23%;
+}
+
+#filterbtn {
+  background-color: white;
+  border-radius: 0;
+  border: 1px solid black;
+}
+
+footer {
+  width: 100%;
+  background-color: purple;
+  height: 100px;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
 
 
 // nav#filter.fixed-top {
