@@ -1,6 +1,6 @@
 <h1>Listings Page</h1>
-<% @listings.order("id DESC").limit(50).each do |listing| %>
-  <% if !listing.seller_id.present? && listing.expiration > Time.now  %>
+<% @listings.order("created_at DESC").limit(50).each do |listing| %>
+  <% if !listing.seller_id.present? && listing.expiration > Time.now %>
     <%= listing.title %><br />
     <%= listing.description %><br />
     <%= listing.price %><br />

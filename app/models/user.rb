@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :listings
   has_many :offers
-  has_many :reviews, through: :listing
+  has_many :reviews
   validates :email, uniqueness: true
   has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/

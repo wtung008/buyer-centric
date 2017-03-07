@@ -1,2 +1,26 @@
 <h1><%= @user.first_name + ' ' + @user.last_name %></h1>
 <%= image_tag @user.avatar.url(:thumb) %>
+<% if user_signed_in? %>
+  <% if current_user.listings.where('seller_id = ?', @user) %>
+    <%= link_to "Review", new_user_review_path(@user) %>
+  <% end %>
+<% end %>
+<div>
+  <% @user.listings.order('created_at DESC').each do |listing| %>
+    <%= image_tag listing.image.url(:thumb) %>
+    <%= link_to listing.title, listing_path %>
+  <% end %>
+</div>
+
+<div>
+  <% @user.reviews.each do |review| %>
+    <%= review.title %><br />
+    <%= review.description %><br />
+    <%= link_to "Reviewer", review.user %><br />
+    <% if user_signed_in? %>
+      <% if current_user.listings.where('seller_id = ?', @user) %>
+        <%= link_to "Edit", edit_user_review_path(review) %> | <%= link_to "Destroy", user_review_path(review), data: { confirm: "Are you sure" }, method: :delete %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

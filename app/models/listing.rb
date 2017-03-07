@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :category
   belongs_to :user
+  belongs_to :seller, class_name: "User"
   has_many :offers
   validates :category_id, presence: true
   belongs_to :condition

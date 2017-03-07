@@ -16,16 +16,16 @@
     <% end %>
 
     <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.user.id != current_user.id %>
-      <%= form_for @offer do |f| %>
-        <%= f.hidden_field :listing_id, value: @listing.id %>
-        <%= f.hidden_field :seller_id, value: current_user.id %>
+      <%= form_for [@listing, @offer] do |f| %>
+        <%#= f.hidden_field :listing_id, value: @listing.id %>
+        <%#= f.hidden_field :seller_id, value: current_user.id %>
         <%= f.submit %>
       <% end %>
     <% end %>
 
   <% end %>
 
-  <% @listing.offers.each do |offer| %>
+  <% @listing.offers.order("created_at DESC").each do |offer| %>
     <% if offer.seller.first_name.present? %>
       <p><%= link_to offer.seller.first_name, offer.seller %></p>
     <% else %>
@@ -41,7 +41,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <%= link_to "Seller Page", (User.where("id = ?", @listing.seller_id).to_a).first %><br />
+  <%= link_to "Seller Page", @listing.seller %><br />
 <% end %>
 
 <%= link_to "Listing Owner", @listing.user %><br />

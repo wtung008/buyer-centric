@@ -1,15 +1,11 @@
 class OffersController < ApplicationController
   def create
-    @offer = Offer.new(offer_params)
+    @offer = Offer.new()
+    @offer.seller = current_user
+    @offer.listing = Listing.find(params[:listing_id])
 
     if @offer.save
       redirect_to @offer.listing
     end
-  end
-
-  private
-
-  def offer_params
-    params.require(:offer).permit(:listing_id, :seller_id)
   end
 end
