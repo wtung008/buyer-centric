@@ -1,14 +1,14 @@
 <h1><%= @user.first_name + ' ' + @user.last_name %></h1>
 <%= image_tag @user.avatar.url(:thumb) %>
 <% if user_signed_in? %>
-  <% if current_user.listings.where('seller_id = ?', @user) %>
+  <% if current_user.listings.where('seller_id = ?', @user) != [] %>
     <%= link_to "Review", new_user_review_path(@user) %>
   <% end %>
 <% end %>
 <div>
   <% @user.listings.order('created_at DESC').each do |listing| %>
     <%= image_tag listing.image.url(:thumb) %>
-    <%= link_to listing.title, listing_path %>
+    <%= link_to listing.title, listing %>
   <% end %>
 </div>
 

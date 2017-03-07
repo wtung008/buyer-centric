@@ -27,6 +27,7 @@ class ListingsController < ApplicationController
   end
 
   def update
+    raise params.inspect
     if @listing.update(listing_params)
       redirect_to listing_path
     else
