@@ -1,0 +1,10 @@
+<% @listings.each do |l| %>
+<div class="card" style="width: 20rem;">
+  <%#= image_tag listing.image.url(:medium), class:"card-img-top" %>
+  <div class="card-block">
+    <h4 class="card-title"><%= l.title %></h4>
+    <p class="card-text"><%= l.price %><%= l.description %></p>
+    <%= link_to "More Info", l, class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>

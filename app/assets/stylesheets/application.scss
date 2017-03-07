@@ -17,11 +17,24 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+html {
+  height: 100%;
+}
+
 body {
-   padding-top: 220px;
-   background-color: #F8F8FF;
+  padding-top: 220px;
+  background-color: #F8F8FF;
+  min-height: 100%;
+
+  // Sticky Footer
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
  }
 
+.content {
+  flex: 1;
+}
  .navbar-brand {
    color: white;
  }
