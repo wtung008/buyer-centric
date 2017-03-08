@@ -9,6 +9,8 @@
   <%= image_tag @listing.image %><br />
 <% end %>
 
+<div id="map"></div>
+
 <% if !@listing.seller_id.present? %>
   <% if user_signed_in? %>
     <% if current_user.id == @listing.user.id %>
