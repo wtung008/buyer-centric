@@ -8,7 +8,7 @@
     <%= listing.category.name %><br />
     <%= listing.condition.name %><br />
     <%= image_tag listing.image.url(:medium) %><br />
-    <%= link_to "Listing Owner", listing.user %><br />
+    <%= link_to "Listing Owner", listing.buyer %><br />
     <%= link_to "Listing Page", listing_path(listing) %><br />
   <% end %>
 <% end %>

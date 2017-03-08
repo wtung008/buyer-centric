@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.user = current_user
+    @listing.buyer = current_user
     if @listing.save
       redirect_to root_path
     else
@@ -27,7 +27,6 @@ class ListingsController < ApplicationController
   end
 
   def update
-    raise params.inspect
     if @listing.update(listing_params)
       redirect_to listing_path
     else

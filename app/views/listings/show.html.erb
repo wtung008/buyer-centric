@@ -11,11 +11,11 @@
 
 <% if !@listing.seller_id.present? %>
   <% if user_signed_in? %>
-    <% if current_user.id == @listing.user.id %>
+    <% if current_user.id == @listing.buyer.id %>
       <%= link_to "Edit", edit_listing_path %> | <%= link_to "Delete", listing_path, data: { confirm: "Are you sure" }, method: :delete %><br />
     <% end %>
 
-    <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.user.id != current_user.id %>
+    <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.buyer.id != current_user.id %>
       <%= form_for [@listing, @offer] do |f| %>
         <%#= f.hidden_field :listing_id, value: @listing.id %>
         <%#= f.hidden_field :seller_id, value: current_user.id %>
@@ -32,7 +32,7 @@
       <p><%= link_to "Seller", offer.seller %></p>
     <% end %>
     <% if user_signed_in? %>
-      <% if @listing.user.id == current_user.id %>
+      <% if @listing.buyer.id == current_user.id %>
         <%= form_for @listing do |f| %>
           <%= f.hidden_field :seller_id, value: offer.seller.id %>
           <%= f.submit "Accept" %>
@@ -44,6 +44,6 @@
   <%= link_to "Seller Page", @listing.seller %><br />
 <% end %>
 
-<%= link_to "Listing Owner", @listing.user %><br />
+<%= link_to "Listing Owner", @listing.buyer %><br />
 
 <%= link_to 'Back', root_path %>
