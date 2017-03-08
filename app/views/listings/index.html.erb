@@ -1,6 +1,6 @@
 <h1>Listings Page</h1>
-<% @listings.order("id DESC").limit(50).each do |listing| %>
-  <% if !listing.seller_id.present? && listing.expiration > Time.now  %>
+<% @listings.order("created_at DESC").limit(50).each do |listing| %>
+  <% if !listing.seller_id.present? && listing.expiration > Time.now %>
     <%= listing.title %><br />
     <%= listing.description %><br />
     <%= listing.price %><br />
@@ -8,7 +8,7 @@
     <%= listing.category.name %><br />
     <%= listing.condition.name %><br />
     <%= image_tag listing.image.url(:medium) %><br />
-    <%= link_to "Listing Owner", listing.user %><br />
+    <%= link_to "Listing Owner", listing.buyer %><br />
     <%= link_to "Listing Page", listing_path(listing) %><br />
   <% end %>
 <% end %>
