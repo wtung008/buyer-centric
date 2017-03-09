@@ -9,7 +9,7 @@
   <%= image_tag @listing.image %><br />
 <% end %>
 
-<div id="map"></div>
+<div id="map" data-latitude="<%= @user.latitude %>" data-longitude="<%= @user.longitude%>"></div>
 
 <% if !@listing.seller_id.present? %>
   <% if user_signed_in? %>
