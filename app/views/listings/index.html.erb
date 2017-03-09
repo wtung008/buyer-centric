@@ -35,14 +35,14 @@
 <%= link_to 'New Listing', new_listing_path %>
 <%= render 'listing' %>
 
-<!-- <% @listings.order("id DESC").limit(50).each do |listing| %>
-  <%= listing.title %><br />
-  <%= listing.description %><br />
-  <%= listing.price %><br />
-  <%= listing.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %><br />
-  <%= listing.category.name %><br />
-  <%= listing.condition.name %><br />
-  <%= image_tag listing.image.url(:medium) %><br />
-  <%= link_to "Listing Owner", listing.user %><br />
-  <%= link_to "Listing Page", listing_path(listing) %><br />
-<% end %> -->
+<!-- <%# @listings.order("id DESC").limit(50).each do |listing| %>
+  <%#= listing.title %><br />
+  <%#= listing.description %><br />
+  <%#= listing.price %><br />
+  <%#= listing.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %><br />
+  <%#= listing.category.name %><br />
+  <%#= listing.condition.name %><br />
+  <%#= image_tag listing.image.url(:medium) %><br />
+  <%#= link_to "Listing Owner", listing.user %><br />
+  <%#= link_to "Listing Page", listing_path(listing) %><br />
+<%# end %> -->
