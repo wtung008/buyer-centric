@@ -36,15 +36,12 @@ body {
     flex: 1;
 }
 
-.sitename-container {
-    position: relative;
-}
-
 .sitename {
     font-family: 'Pacifico', cursive;
     color: white;
     text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
     padding-left: 15px;
+    width: 302px;
 }
 
 a.sps--abv {
@@ -76,7 +73,7 @@ a.sps--blw {
 
 nav#navigation {
     background-color: purple;
-    z-index: 1;
+    z-index: 2;
 }
 
 nav#filter {
