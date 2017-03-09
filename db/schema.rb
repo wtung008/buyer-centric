@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170308203139) do
   create_table "offers", force: :cascade do |t|
     t.integer  "seller_id"
     t.integer  "listing_id"
+    t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

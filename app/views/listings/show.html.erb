@@ -19,6 +19,7 @@
 
     <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.buyer.id != current_user.id %>
       <%= form_for [@listing, @offer] do |f| %>
+        <%= f.hidden_field :buyer_id, value: @listing.buyer_id %>
         <%#= f.hidden_field :listing_id, value: @listing.id %>
         <%#= f.hidden_field :seller_id, value: current_user.id %>
         <%= f.submit %>
@@ -35,6 +36,7 @@
     <% end %>
     <% if user_signed_in? %>
       <% if @listing.buyer.id == current_user.id %>
+        <p><%= link_to "Message", conversations_path %></p>
         <%= form_for @listing do |f| %>
           <%= f.hidden_field :seller_id, value: offer.seller.id %>
           <%= f.submit "Accept" %>
@@ -44,6 +46,11 @@
   <% end %>
 <% else %>
   <%= link_to "Seller Page", @listing.seller %><br />
+  <% if user_signed_in? %>
+    <% if @listing.buyer.id == current_user.id %>
+      <%= link_to "Message", conversations_path %><br />
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= link_to "Listing Owner", @listing.buyer %><br />

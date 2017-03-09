@@ -3,6 +3,7 @@ class CreateOffers < ActiveRecord::Migration[5.0]
     create_table :offers do |t|
       t.integer :seller_id
       t.integer :listing_id
+      t.integer :buyer_id
 
       t.timestamps
     end
