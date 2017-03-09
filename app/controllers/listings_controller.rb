@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
 
   def show
     @offer = Offer.new
+    @user = @listing.buyer
   end
 
   def new

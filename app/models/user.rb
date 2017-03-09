@@ -17,4 +17,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :buyer_conversations, class_name: "Conversation", foreign_key: "buyer_id"
   has_many :seller_conversations, class_name: "Conversation", foreign_key: "seller_id"
+
+  geocoded_by :address
+  after_validation :geocode
+
 end
