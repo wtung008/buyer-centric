@@ -1,14 +1,46 @@
-<h1>Listings Page</h1>
-<% @listings.order("created_at DESC").limit(50).each do |listing| %>
-  <% if !listing.seller_id.present? && listing.expiration > Time.now %>
-    <%= listing.title %><br />
-    <%= listing.description %><br />
-    <%= listing.price %><br />
-    <%= listing.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %><br />
-    <%= listing.category.name %><br />
-    <%= listing.condition.name %><br />
-    <%= image_tag listing.image.url(:medium) %><br />
-    <%= link_to "Listing Owner", listing.buyer %><br />
-    <%= link_to "Listing Page", listing_path(listing) %><br />
-  <% end %>
-<% end %>
+<div class="fixed-top">
+<div class="pusher sps sps--abv spsdiv"></div>
+<nav id="filter" class="navbar navbar-toggleable-md bottom-shadow">
+
+  <div class="container">
+
+    <form class="navbar-form form-inline input-group">
+
+    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), class: "custom-select", include_blank: "Category" %>
+
+    <%= select_tag "condition", options_from_collection_for_select(@conditions, "id", "name"), class: "custom-select", include_blank: "Condition" %>
+
+    <select name="price" class="custom-select">
+      <option selected>Price</option>
+      <option>Placeholder</option>
+      <option>Placeholder</option>
+      <option>Placeholder</option>
+    </select>
+
+    <select name="Date" class="custom-select">
+      <option selected>Date</option>
+      <option>Placeholder</option>
+      <option>Placeholder</option>
+      <option>Placeholder</option>
+    </select>
+
+    <button type="submit" name="filter" class="btn" id="filterbtn">Filter</button>
+  </form>
+
+  </div>
+</nav>
+</div>
+
+<%= render 'listing' %>
+
+<!-- <% @listings.order("id DESC").limit(50).each do |listing| %>
+  <%= listing.title %><br />
+  <%= listing.description %><br />
+  <%= listing.price %><br />
+  <%= listing.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %><br />
+  <%= listing.category.name %><br />
+  <%= listing.condition.name %><br />
+  <%= image_tag listing.image.url(:medium) %><br />
+  <%= link_to "Listing Owner", listing.user %><br />
+  <%= link_to "Listing Page", listing_path(listing) %><br />
+<% end %> -->

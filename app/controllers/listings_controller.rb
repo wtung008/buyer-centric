@@ -3,6 +3,8 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @listings = Listing.all
+    @conditions = Condition.all
+    @categories = Category.all
   end
 
   def show

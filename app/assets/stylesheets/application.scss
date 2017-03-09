@@ -10,8 +10,162 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+*= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url( 'https://fonts.googleapis.com/css?family=Pacifico');
+
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 220px;
+    background-color: #F8F8FF;
+    min-height: 100%;
+    // Sticky Footer
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.sitename {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
+    padding-left: 15px;
+    width: 302px;
+}
+
+a.sps--abv {
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 48px;
+    top: 35px;
+}
+
+a.sps--blw {
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 24px;
+    top: 0;
+}
+
+.sitename:hover {
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
+.navbar-brand {
+    color: white;
+}
+
+nav#navigation {
+    background-color: purple;
+    z-index: 2;
+}
+
+nav#filter {
+    background-color: white;
+}
+
+.bottom-shadow {
+    -webkit-box-shadow: 0 4px 23px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 4px 23px 1px rgba(0,0,0,0.75);
+    box-shadow: 0 4px 23px 1px rgba(0,0,0,0.75);
+}
+
+.spsdiv.sps--abv {
+    height: 150px;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+    width: 100%;
+}
+
+.spsdiv.sps--blw {
+    height: 50px;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+nav#navigation div.container {
+    height: 100%;
+    align-items: stretch;
+}
+
+div.nav {
+    width: 100%;
+}
+
+.searchbar {
+    border-radius: 0;
+    background-color: white;
+    border-right: 0;
+}
+
+button.searchbar {
+    border-left: 0;
+    font-size: 15px;
+    border: 1px solid white;
+}
+
+ul.nav.navbar-nav {
+    padding-left: 20px;
+}
+
+a.nav-link {
+    color: white;
+}
+
+div.fixed-top {
+    z-index: 1;
+}
+
+.custom-select {
+    border-radius: 0;
+    margin-right: 5px;
+    width: 23%;
+}
+
+#filterbtn {
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+footer {
+    width: 100%;
+    background-color: purple;
+    height: 100px;
+    color: white;
+
+    a {
+        color: white;
+    }
+}
+// nav#filter.fixed-top {
+//   top: 150px;
+// }
+//
+// nav#filter.sps--blw {
+//   top: 50px;
+//   -moz-transition: all .5s;
+//   -ms-transition: all .5s;
+//   -webkit-transition: all .5s;
+//   transition: all .5s;
+// }
