@@ -3,13 +3,13 @@
   <div class="ui list">
     <div class="item">
       <% @conversations.each do |conversation| %>
-        <% if conversation.seller_id == current_user.id ||      conversation.buyer_id == current_user.id %>
+        <% if conversation.seller_id == current_user.id || conversation.buyer_id == current_user.id %>
           <% if conversation.seller_id == current_user.id %>
             <% buyer = User.find(conversation.buyer_id) %>
           <% else %>
             <% buyer = User.find(conversation.seller_id) %>
           <% end %>
-          <%= link_to buyer.first_name,   conversation_messages_path(conversation)%>
+          <%= link_to buyer.first_name, conversation_messages_path(conversation)%><br />
         <% end %>
       <% end %>
     </div>
@@ -19,9 +19,9 @@
   <h3>All Users</h3>
   <div class="ui list">
     <% @offers.each do |offer| %>
-      <% if offer.seller_id == current_user.id %>
+      <% if offer.seller_id == current_user.id || offer.buyer_id == current_user.id %>
         <div class="item">
-          <%= User.find(offer.buyer_id).first_name %> <%= link_to 'Message me!', conversations_path(seller_id: current_user.id, buyer_id: current_user.id), method: 'post'%>
+          <%= User.find(offer.buyer_id).first_name %> <%= link_to 'Message me!', conversations_path(seller_id: current_user.id, buyer_id: User.find(offer.buyer_id).id), method: 'post'%>
         </div>
       <% end %>
     <% end %>
