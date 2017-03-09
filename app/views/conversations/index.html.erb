@@ -16,12 +16,17 @@
   </div>
 </div>
 <div class="ui segment">
-  <h3>All Buyers</h3>
+  <h3>All Users</h3>
   <div class="ui list">
     <% @offers.each do |offer| %>
-      <% if offer.seller_id == current_user.id %>
+      <% if offer.seller_id == current_user.id || offer.buyer_id == current_user.id %>
+        <% if offer.seller_id == current_user.id %>
+          <% buyer = User.find(offer.buyer_id) %>
+        <% else %>
+          <% buyer = User.find(offer.seller_id) %>
+        <% end %>
         <div class="item">
-          <%= User.find(offer.buyer_id).first_name %> <%= link_to 'Message', conversations_path(seller_id: current_user.id, buyer_id: User.find(offer.buyer_id).id), method: 'post'%>
+          <%= buyer.first_name %> <%= link_to 'Message', conversations_path(seller_id: current_user.id, buyer_id: buyer.id), method: 'post'%>
         </div>
       <% end %>
     <% end %>
