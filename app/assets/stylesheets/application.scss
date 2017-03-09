@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    padding-top: 220px;
+    padding-top: 150px;
     background-color: #F8F8FF;
     min-height: 100%;
     // Sticky Footer
@@ -34,6 +34,7 @@ body {
 
 .content {
     flex: 1;
+    margin-top: 15px;
 }
 
 .sitename {
