@@ -100,13 +100,13 @@ ActiveRecord::Schema.define(version: 20170308203139) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.text     "address"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.text     "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
