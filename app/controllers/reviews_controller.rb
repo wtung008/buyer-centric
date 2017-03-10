@@ -9,11 +9,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.buyer = current_user
     @review.seller = @user
-
-    if @review.save
-      redirect_to @user
-    else
-      render :new
+    @listings = Listing.where(buyer_id: @user.id, seller_id: current_user.id).length
+    @reviews = Review.where(seller_id: @user.id, buyer_id: current_user.id).length
+    @listings1 = Listing.where(seller_id: @user.id, buyer_id: current_user.id).length
+    if @listings > @reviews || @listings1 > @reviews
+      if @review.save
+        redirect_to @user
+      else
+        render :new
+      end
     end
   end
 
@@ -45,6 +49,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :description)
+    params.require(:review).permit(:title, :description, :rating)
   end
 end

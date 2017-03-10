@@ -9,8 +9,6 @@
   <%= image_tag @listing.image %><br />
 <% end %>
 
-<div id="map"></div>
-
 <% if !@listing.seller_id.present? %>
   <% if user_signed_in? %>
     <% if current_user.id == @listing.buyer.id %>
@@ -29,13 +27,13 @@
   <% end %>
 
   <% @listing.offers.order("created_at DESC").each do |offer| %>
-    <% if offer.seller.first_name.present? %>
-      <p><%= link_to offer.seller.first_name, offer.seller %></p>
-    <% else %>
-      <p><%= link_to "Seller", offer.seller %></p>
-    <% end %>
     <% if user_signed_in? %>
       <% if @listing.buyer.id == current_user.id %>
+        <% if offer.seller.first_name.present? %>
+          <p><%= link_to offer.seller.first_name, offer.seller %></p>
+        <% else %>
+          <p><%= link_to "Seller", offer.seller %></p>
+        <% end %>
         <p><%= link_to "Message", conversations_path %></p>
         <%= form_for @listing do |f| %>
           <%= f.hidden_field :seller_id, value: offer.seller.id %>
@@ -45,14 +43,16 @@
     <% end %>
   <% end %>
 <% else %>
-  <%= link_to "Seller Page", @listing.seller %><br />
   <% if user_signed_in? %>
     <% if @listing.buyer.id == current_user.id %>
+      <%= link_to "Seller Page", @listing.seller %><br />
       <%= link_to "Message", conversations_path %><br />
     <% end %>
   <% end %>
 <% end %>
 
 <%= link_to "Listing Owner", @listing.buyer %><br />
+
+<div id="map"></div>
 
 <%= link_to 'Back', root_path %>
