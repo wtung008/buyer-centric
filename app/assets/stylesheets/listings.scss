@@ -5,3 +5,22 @@
 .paddingfix {
   padding-top: 70px;
 }
+
+div.fixed-top {
+    z-index: 1;
+}
+
+.custom-select {
+    border-radius: 0;
+    margin-right: 5px;
+}
+
+.filterbtn {
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.new-listing {
+  color: black;
+}
