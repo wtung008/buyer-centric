@@ -1,52 +1,106 @@
-<%= @user.first_name + ' ' + @user.last_name %><br />
-<% if !@user.avatar_file_name.nil? %>
-  <%= image_tag @user.avatar.url(:thumb) %>
-<% else %>
-  <img src="<%= asset_path("anonymous.jpg") %>" />
-<% end %>
-<div class="star-rating" data-score= <%= @avg_review %> ></div>
-<em><%= "#{@reviews.length} reviews" %></em><br />
-<% if user_signed_in? %>
-  <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
-    <% if @listing > @review %>
-      <%= link_to "Review", new_user_review_path(@user) %>
-    <% elsif @listing1 > @review %>
-      <%= link_to "Review", new_user_review_path(@user) %>
-    <% end %>
-  <% end %>
-<% end %>
-<div>
-  <h2>All Listings</h2>
-  <% @user.buyer_listings.order('created_at DESC').each do |listing| %>
-    <%= image_tag listing.image.url(:thumb) %>
-    <%= link_to listing.title, listing %>
-  <% end %>
-</div>
+<div class="container-solid">
 
-<div>
-  <h2>Sold Listings</h2>
-  <% @user.seller_listings.order('created_at DESC').each do |listing| %>
-    <%= image_tag listing.image.url(:thumb) %>
-    <%= link_to listing.title, listing %>
-  <% end %>
-</div>
-
-<div>
-  <h2>Reviews</h2>
-  <% @user.seller_reviews.each do |review| %>
-    <%= review.title %><br />
-    <%= review.description %><br />
-    <%= link_to "Reviewer", review.buyer %><br />
-    <% if user_signed_in? %>
-      <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
-        <%= link_to "Edit", edit_user_review_path(@user, review) %> | <%= link_to "Destroy", user_review_path(@user, review), data: { confirm: "Are you sure" }, method: :delete %><br />
+  <div class="row">
+    <div class="col-3">
+      <% if !@user.avatar_file_name.nil? %>
+        <%= image_tag @user.avatar.url(:thumb), class: "user-avatar" %>
+      <% else %>
+        <img src="<%= asset_path("anonymous.jpg") %>" class="user-avatar" />
       <% end %>
-    <% end %>
-  <% end %>
-</div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-11">
+          <article class="float-left">
+            <h1 class="float-left"><%= @user.first_name + ' ' + @user.last_name %></h1>
+            <div class="star-rating" data-score= <%= @avg_review %> ></div>
+            <em><%= "#{@reviews.length} reviews" %></em><br />
+            <% if user_signed_in? %>
+              <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
+                <% if @listing > @review %>
+                  <%= link_to "Review", new_user_review_path(@user) %>
+                <% elsif @listing1 > @review %>
+                  <%= link_to "Review", new_user_review_path(@user) %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </article>
+        </div>
+        <div class="col-1">
+          <% if user_signed_in? %>
+            <% if current_user.id == @user.id %>
+              <%= link_to "Edit", edit_user_registration_path(@user), class: "btn btn-primary float-right" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %>
+  <div class="row">
+    <div class="col-12">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#listings" role="tab">Listings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#history" role="tab">History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews</a>
+      </li>
+    </ul>
+    </div>
+  </div>
 
+  <div class="tab-content">
+    <div class="tab-pane active" id="listings" role="tabpanel">
+    <div class="card-deck">
+      <% @user.buyer_listings.order('created_at DESC').each do |l| %>
+      <div class="card usercard">
+      <%= image_tag l.image.url(:medium), class: "card-img-top img-responsive" %>
+      <div class="card-block">
+        <h4 class="card-title">$ <%= l.price %> <%= truncate(l.title, length: 10) %></h4>
+        <p class="card-text"><%= link_to "Listing Owner", user_path(l.buyer_id) %></p>
+        <%= link_to "More Info", l, class: "btn btn-primary" %>
+      </div>
+      <div class="card-footer">
+      <small class="text-muted"><%= l.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %></small>
+      </div>
+    </div>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="history" role="tabpanel">
+      <div class="card-deck">
+        <% @user.seller_listings.order('created_at DESC').each do |l| %>
+        <div class="card usercard">
+        <%= image_tag l.image.url(:medium), class: "card-img-top img-responsive" %>
+        <div class="card-block">
+          <h4 class="card-title">$ <%= l.price %> <%= truncate(l.title, length: 10) %></h4>
+          <p class="card-text">Complete</p>
+          <%= link_to "More Info", l, class: "btn btn-primary" %>
+        </div>
+      </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="reviews" role="tabpanel">
+      <% @user.seller_reviews.each do |review| %>
+        <%= review.title %><br />
+        <%= review.description %><br />
+        <%= link_to "Reviewer", review.buyer %><br />
+        <% if user_signed_in? %>
+          <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
+            <%= link_to "Edit", edit_user_review_path(@user, review) %> | <%= link_to "Destroy", user_review_path(@user, review), data: { confirm: "Are you sure" }, method: :delete %><br />
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  </div>
 <script>
   $('.star-rating').raty({
     path: '/assets/',
@@ -56,3 +110,4 @@
     }
   });
 </script>
+</div>

@@ -37,6 +37,10 @@ body {
     margin-top: 15px;
 }
 
+div.alert.fixed-top {
+    z-index: 1031; 
+}
+
 .sitename {
     font-family: 'Pacifico', cursive;
     color: white;
@@ -97,7 +101,7 @@ nav#filter {
 }
 
 .spsdiv.sps--blw {
-    height: 50px;
+    height: 60px;
     -moz-transition: height 0.5s;
     -ms-transition: height 0.5s;
     -webkit-transition: height 0.5s;
@@ -138,22 +142,6 @@ a.nav-link {
     color: white;
 }
 
-div.fixed-top {
-    z-index: 1;
-}
-
-.custom-select {
-    border-radius: 0;
-    margin-right: 5px;
-    width: 23%;
-}
-
-#filterbtn {
-    background-color: white;
-    border-radius: 0;
-    border: 1px solid black;
-}
-
 footer {
     width: 100%;
     background-color: purple;
@@ -163,6 +151,14 @@ footer {
     a {
         color: white;
     }
+}
+
+.opb {
+  border: 1px solid black;
+}
+
+.border-left {
+  border-left: 1px solid #bababa;
 }
 // nav#filter.fixed-top {
 //   top: 150px;

@@ -5,3 +5,43 @@
 .paddingfix {
   padding-top: 70px;
 }
+
+div.fixed-top {
+    z-index: 1;
+}
+
+.custom-select {
+    border-radius: 0;
+    margin-right: 5px;
+}
+
+.filterbtn {
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.new-listing {
+  color: black;
+}
+
+.card-deck {
+    width: 100%;
+}
+
+.indexcard {
+  margin: 10px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid purple;
+}
+
+.img-show {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#map {
+  margin-bottom: 15px;
+}
