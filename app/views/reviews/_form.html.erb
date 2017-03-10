@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
 <%= form_for [@user, @review] do |f| %>
   <% if @review.errors.any? %>
     <% @review.errors.full_messages.each do |message| %>
