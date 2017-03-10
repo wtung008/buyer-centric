@@ -1,4 +1,3 @@
-<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
 <%= form_for [@user, @review] do |f| %>
   <% if @review.errors.any? %>
     <% @review.errors.full_messages.each do |message| %>
@@ -23,7 +22,10 @@
 
 <script>
   $('#star-rating').raty({
-    path: '/assets/',
+    path: '',
+    starHalf    : "<%= asset_path("star-half.png") %>",
+    starOff     : "<%= asset_path("star-off.png") %>",
+    starOn      : "<%= asset_path("star-on.png") %>",
     scoreName: 'review[rating]'
   });
 </script>
