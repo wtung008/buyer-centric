@@ -212,8 +212,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.2)
-  font-awesome-sass (~> 4.7.0)
   figaro (~> 1.1, >= 1.1.1)
+  font-awesome-sass (~> 4.7.0)
   foreman
   geocoder (~> 1.4, >= 1.4.3)
   jbuilder (~> 2.5)
@@ -236,4 +236,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
