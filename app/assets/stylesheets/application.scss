@@ -37,6 +37,10 @@ body {
     margin-top: 15px;
 }
 
+div.alert.fixed-top {
+    z-index: 1031; 
+}
+
 .sitename {
     font-family: 'Pacifico', cursive;
     color: white;
@@ -97,7 +101,7 @@ nav#filter {
 }
 
 .spsdiv.sps--blw {
-    height: 50px;
+    height: 60px;
     -moz-transition: height 0.5s;
     -ms-transition: height 0.5s;
     -webkit-transition: height 0.5s;
