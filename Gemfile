@@ -76,3 +76,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
