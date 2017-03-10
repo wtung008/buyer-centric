@@ -1,5 +1,9 @@
 <%= @user.first_name + ' ' + @user.last_name %><br />
-<%= image_tag @user.avatar.url(:thumb) %>
+<% if !@user.avatar_file_name.nil? %>
+  <%= image_tag @user.avatar.url(:thumb) %>
+<% else %>
+  <img src="<%= asset_path("anonymous.jpg") %>" />
+<% end %>
 <div class="star-rating" data-score= <%= @avg_review %> ></div>
 <em><%= "#{@reviews.length} reviews" %></em><br />
 <% if user_signed_in? %>
