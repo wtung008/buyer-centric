@@ -2,8 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @offers = Offer.all
-    @conversations = Conversation.all
+    @offers = Offer.all.uniq
   end
 
   def create
