@@ -1,4 +1,5 @@
-<%= link_to "WitGit", root_path, class: "sitename sps sps--abv fixed-top" %>
+<%= link_to "WitGit", root_path, class: "sitename sps sps--abv fixed-top hidden-lg-down" %>
+<%= link_to "WG", root_path, class: "sitename sps sps--abv fixed-top hidden-lg-up" %>
 
 <nav id="navigation" class="navbar navbar-toggleable-md fixed-top sps sps--abv spsdiv bottom-shadow">
 
@@ -14,6 +15,8 @@
     </div>
 
     <ul class="nav navbar-nav">
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
 
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link" %>
@@ -37,10 +40,11 @@
           <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </ul>
-  <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
   </div>
 </nav>
 </div>
