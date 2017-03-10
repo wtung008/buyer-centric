@@ -3,8 +3,7 @@
 
 <nav id="navigation" class="navbar navbar-toggleable-md fixed-top sps sps--abv spsdiv bottom-shadow">
 
-  <div class="container">
-
+  <div class="container">      
     <div class="nav navbar-header clearfix">
 
     <form class="navbar-form form-inline input-group bottom-shadow searchform">
@@ -15,9 +14,6 @@
     </div>
 
     <ul class="nav navbar-nav">
-
-      <div class="collapse navbar-collapse" id="navbarToggler">
-
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
@@ -40,11 +36,7 @@
           <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
-      </div>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </ul>
+      </ul>
   </div>
 </nav>
 </div>

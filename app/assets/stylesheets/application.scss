@@ -67,6 +67,10 @@ a.sps--blw {
     top: 0;
 }
 
+a.hidden-lg-up {
+  font-size: 24px;
+}
+
 .sitename:hover {
     color: white;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
@@ -159,6 +163,10 @@ footer {
 
 .border-left {
   border-left: 1px solid #bababa;
+}
+
+.card {
+  max-width: 326px;
 }
 // nav#filter.fixed-top {
 //   top: 150px;
