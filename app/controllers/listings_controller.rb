@@ -14,6 +14,11 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
