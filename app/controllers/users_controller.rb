@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @listing = Listing.where(buyer_id: @user.id, seller_id: current_user.id).length
-    @review = Review.where(seller_id: @user.id, buyer_id: current_user.id).length
-    @listing1 = Listing.where(seller_id: @user.id, buyer_id: current_user.id).length
+    if user_signed_in?
+      @listing = Listing.where(buyer_id: @user.id, seller_id: current_user.id).length
+      @review = Review.where(seller_id: @user.id, buyer_id: current_user.id).length
+      @listing1 = Listing.where(seller_id: @user.id, buyer_id: current_user.id).length
+    end
 
     @reviews = Review.where(seller_id: @user.id).order("created_at DESC")
 
