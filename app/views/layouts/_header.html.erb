@@ -1,9 +1,9 @@
-<%= link_to "WitGit", root_path, class: "sitename sps sps--abv fixed-top" %>
+<%= link_to "WitGit", root_path, class: "sitename sps sps--abv fixed-top hidden-lg-down" %>
+<%= link_to "WG", root_path, class: "sitename sps sps--abv fixed-top hidden-lg-up" %>
 
 <nav id="navigation" class="navbar navbar-toggleable-md fixed-top sps sps--abv spsdiv bottom-shadow">
 
-  <div class="container">
-
+  <div class="container">      
     <div class="nav navbar-header clearfix">
 
     <form class="navbar-form form-inline input-group bottom-shadow searchform">
@@ -14,7 +14,6 @@
     </div>
 
     <ul class="nav navbar-nav">
-
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
@@ -37,10 +36,7 @@
           <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
-    </ul>
-  <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
+      </ul>
   </div>
 </nav>
 </div>

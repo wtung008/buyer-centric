@@ -38,7 +38,7 @@ body {
 }
 
 div.alert.fixed-top {
-    z-index: 1031; 
+    z-index: 1031;
 }
 
 .sitename {
@@ -65,6 +65,10 @@ a.sps--blw {
     transition: all 0.5s;
     font-size: 24px;
     top: 0;
+}
+
+a.hidden-lg-up {
+  font-size: 24px;
 }
 
 .sitename:hover {
@@ -159,6 +163,10 @@ footer {
 
 .border-left {
   border-left: 1px solid #bababa;
+}
+
+.card {
+  max-width: 326px;
 }
 // nav#filter.fixed-top {
 //   top: 150px;
