@@ -73,7 +73,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-gem 'font-awesome-sass', '~> 4.7.0'
+gem "font-awesome-rails"
 
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
