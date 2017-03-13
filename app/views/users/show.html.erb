@@ -14,7 +14,7 @@
           <article class="float-left">
             <h1 class="float-left"><%= @user.first_name + ' ' + @user.last_name %></h1><br /><br /><br />
             <div class="star-rating" data-score= <%= @avg_review %> ></div>
-            <em><%= "#{@reviews.length} reviews" %></em><br />
+            <em><%= pluralize(@reviews.length, "review") %></em><br />
             <% if user_signed_in? %>
               <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
                 <% if @listing > @review %>

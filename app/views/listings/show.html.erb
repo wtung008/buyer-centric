@@ -33,7 +33,7 @@
         <% if user_signed_in? %>
           <% if @listing.buyer.id == current_user.id %>
             <p><%= link_to offer.seller.first_name + ' ' + offer.seller.last_name, offer.seller %></p>
-            <p><%= link_to "Message", conversations_path %></p>
+            <p><%= link_to "Message", conversations_path(seller_id: current_user.id, buyer_id: offer.seller.id), method: 'post' %></p>
             <%= form_for @listing do |f| %>
               <%= f.hidden_field :seller_id, value: offer.seller.id %>
               <%= f.submit "Accept" %>
@@ -45,7 +45,7 @@
       <% if user_signed_in? %>
         <% if @listing.buyer.id == current_user.id %>
           <%= link_to seller_full_name, @listing.seller %><br />
-          <%= link_to "Message", conversations_path %><br />
+          <%= link_to "Message", conversations_path(seller_id: current_user.id, buyer_id: @listing.seller.id), method: 'post' %><br />
         <% end %>
       <% end %>
     <% end %>
