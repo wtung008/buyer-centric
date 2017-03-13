@@ -5,6 +5,7 @@ class OffersController < ApplicationController
     @offer.listing = Listing.find(params[:listing_id])
 
     if @offer.save
+      OfferMailer.offer_email(@offer).deliver
       redirect_to @offer.listing
     end
   end

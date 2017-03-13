@@ -91,7 +91,7 @@
       <% @user.seller_reviews.each do |review| %>
         <%= review.title %><br />
         <%= review.description %><br />
-        <%= link_to "Reviewer", review.buyer %><br />
+        <%= link_to review.buyer.first_name + ' ' + review.buyer.last_name, review.buyer %><br />
         <% if user_signed_in? %>
           <% if @user.buyer_listings.where('seller_id = ?', current_user) != [] || @user.seller_listings.where('buyer_id = ?', current_user) != [] %>
             <%= link_to "Edit", edit_user_review_path(@user, review) %> | <%= link_to "Destroy", user_review_path(@user, review), data: { confirm: "Are you sure" }, method: :delete %><br />

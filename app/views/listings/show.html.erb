@@ -4,7 +4,7 @@
   <div class="col-6">
     <h1><%= @listing.title %></h1>
     <p><%= @listing.description %></p>
-    <%= link_to "Listing Owner", @listing.buyer %>
+    <%= link_to buyer_full_name, @listing.buyer %>
   </div>
   <div class="col-4">
     <p>Offer Price: $<%= @listing.price %></p>
@@ -32,11 +32,7 @@
       <% @listing.offers.order("created_at DESC").each do |offer| %>
         <% if user_signed_in? %>
           <% if @listing.buyer.id == current_user.id %>
-            <% if offer.seller.first_name.present? %>
-              <p><%= link_to offer.seller.first_name, offer.seller %></p>
-            <% else %>
-              <p><%= link_to "Seller", offer.seller %></p>
-            <% end %>
+            <p><%= link_to offer.seller.first_name + ' ' + offer.seller.last_name, offer.seller %></p>
             <p><%= link_to "Message", conversations_path %></p>
             <%= form_for @listing do |f| %>
               <%= f.hidden_field :seller_id, value: offer.seller.id %>
@@ -48,7 +44,7 @@
     <% else %>
       <% if user_signed_in? %>
         <% if @listing.buyer.id == current_user.id %>
-          <%= link_to "Seller Page", @listing.seller %><br />
+          <%= link_to seller_full_name, @listing.seller %><br />
           <%= link_to "Message", conversations_path %><br />
         <% end %>
       <% end %>

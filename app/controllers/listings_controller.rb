@@ -40,6 +40,9 @@ class ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
+      if @listing.seller_id_changed?
+        AcceptMailer.accept_email(@listing).deliver
+      end
       redirect_to listing_path
     else
       render :edit
