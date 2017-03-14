@@ -2,7 +2,10 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @listings = Listing.all
+    @listings = Listing.where(nil)
+    filtering_params(params).each do |key, value|
+      @listings = @listings.public_send(key, value) if value.present?
+    end
     @conditions = Condition.all
     @categories = Category.all
   end
@@ -63,5 +66,9 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(:title, :description, :price, :expiration, :category_id, :condition_id, :seller_id, :image)
+  end
+
+  def filtering_params(params)
+    params.slice(:category, :condition)
   end
 end

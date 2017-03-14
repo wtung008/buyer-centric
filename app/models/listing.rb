@@ -9,4 +9,6 @@ class Listing < ApplicationRecord
   validates :image, presence: true
   has_attached_file :image, styles: { medium: "300x300#", thumb: "100x100#" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  scope :category, -> (category_id) { where category_id: category_id }
+  scope :condition, -> (condition_id) { where condition_id: condition_id }
 end
