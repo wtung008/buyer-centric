@@ -11,4 +11,7 @@ class Listing < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   scope :category, -> (category_id) { where category_id: category_id }
   scope :condition, -> (condition_id) { where condition_id: condition_id }
+  def self.search(search)
+    where("title ILIKE ?", "%#{search}%")
+  end
 end
