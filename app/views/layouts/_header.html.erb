@@ -6,7 +6,7 @@
   <div class="container">
     <div class="nav navbar-header clearfix">
 
-      <%= form_tag listings_path, :method => 'get', class: "navbar-form form-inline input-group bottom-shadow searchform", id: 'the-basics', role: "search" do %>
+      <%= form_tag listings_path, :method => 'get', class: "navbar-form form-inline input-group bottom-shadow searchform", role: "search" do %>
         <%= text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control searchbar" %>
         <%= button_tag(type: 'submit', :name => nil, class:"btn searchbar") do %>
           <i class="fa fa-search" aria-hidden="true"></i>
