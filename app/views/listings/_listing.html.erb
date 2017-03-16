@@ -2,7 +2,7 @@
   <h4>No search results.</h4>
 <% end %>
 <% @listings.order("id DESC").limit(50).each do |l| %>
-  <% if l.buyer_id.present? %>
+  <% if l.buyer.present? %>
     <% if !l.seller_id.present? && l.expiration > Time.now %>
       <div class="card indexcard">
         <%= image_tag l.image.url(:medium), class:"card-img-top img-responsive" %>
