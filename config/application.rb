@@ -13,5 +13,6 @@ module BuyerCentric
     # -- all .rb files in that directory are automatically loaded.
     Rails.application.config.time_zone = 'Eastern Time (US & Canada)'
     Rails.application.config.active_record.default_timezone = :local
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

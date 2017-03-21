@@ -10,10 +10,43 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-*= require_tree .
+ *= require normalize-rails
+ *= require_tree .
  *= require_self
  *= require font-awesome
  */
 @import "bootstrap";
 @import "font-awesome";
 @import url( 'https://fonts.googleapis.com/css?family=Pacifico');
+
+@font-face {
+  font-family:'magneto';
+  src:font-url('magnetob.ttf');
+}
+
+body {
+    padding-top: 70px;
+}
+
+nav {
+    background-color: #001a49;
+  }
+
+h1 a {
+  font-family: magneto;
+  color: #f3702d;
+  // text-shadow: -1px 0 #ef5223,0 1px #ef5223,1px 0 #ef5223,0 -1px #ef5223;
+}
+
+.navbar-dark {
+      background-color: #001a49;
+}
+
+.search {
+  width: 100%;
+  margin-right: 10%;
+}
+
+.sb {
+  width: 100%;
+}

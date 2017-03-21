@@ -75,6 +75,8 @@ gem "font-awesome-rails"
 
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
+gem 'normalize-rails'
+
 group :production do
   gem 'rails_12factor'
 end
