@@ -16,24 +16,24 @@
                     <% if user_signed_in? %>
                       <% if current_page?(root_path) %>
                         <li class="nav-item">
-                            <%= link_to "Post", new_listing_path,  {class: "nav-link btn btn-attention raised", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+                            <%= link_to "Post", new_listing_path,  {class: "nav-link btn btn-attention raised head-btn", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
                         </li>
                       <% end %>
                       <li class="nav-item">
-                          <%= link_to "Messages", conversations_path, class: "nav-link btn btn-primary raised" %>
+                          <%= link_to "Messages", conversations_path, class: "nav-link btn btn-primary raised head-btn" %>
                       </li>
                       <li class="nav-item">
-                          <%= link_to "Account", current_user, class: "nav-link btn btn-primary raised" %>
+                          <%= link_to "Account", current_user, class: "nav-link btn btn-primary raised head-btn" %>
                       </li>
                       <li class="nav-item">
-                          <%= link_to "Logout", destroy_user_session_path, data: { confirm:"Are you sure?" }, method: :delete, class:"nav-link btn btn-primary raised" %>
+                          <%= link_to "Logout", destroy_user_session_path, data: { confirm:"Are you sure?" }, method: :delete, class:"nav-link btn btn-primary raised head-btn" %>
                       </li>
                    <% else %>
                       <li class="nav-item">
-                          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-primary raised" %>
+                          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-primary raised head-btn" %>
                       </li>
                       <li class="nav-item">
-                          <%= link_to "Register", new_user_registration_path, class: "nav-link btn btn-attention raised" %>
+                          <%= link_to "Register", new_user_registration_path, class: "nav-link btn btn-attention raised head-btn" %>
                       </li>
                     <% end %>
                 </ul>

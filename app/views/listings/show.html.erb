@@ -1,4 +1,4 @@
-<div class="listing">
+<div class="bg-solid">
 <div class="row">
     <div class="col-6">
         <h1 class="show-name"><%= @listing.title %></h1>
@@ -58,8 +58,12 @@
         <p class="lbl-info"><%= link_to buyer_full_name, @listing.buyer %></p></br>
         <h6 class="lbl">Price:</h6>
         <p class="lbl-info">$<%= @listing.price %></p></br>
-        <h6 class="lbl">Price:</h6>
-        <p class="lbl-info">$<%= @listing.price %></p></br>
+        <h6 class="lbl">Description:</h6>
+        <p class="lbl-info"><%= @listing.description %></p></br>
+        <h6 class="lbl">End Date:</h6>
+        <p class="lbl-info"><%= @listing.expiration.strftime("%A %b %d %Y") %></p></br>
+        <h6 class="lbl">Time Remaining:</h6>
+        <p class="lbl-info"><%= "#{(@listing.expiration > Time.now.utc ) ? "#{time_ago_in_words(@listing.expiration)}" : 'Expired'}" %></p></br>
     </div>
 </div>
 <div class="row">
