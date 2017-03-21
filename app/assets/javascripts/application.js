@@ -33,4 +33,8 @@ $(document).on('turbolinks:load', function() {
     reader.readAsDataURL(image);
     console.log(files);
   });
+
+  setTimeout(function(){
+    $(".alert").alert('close')
+  }, 1500); 
 });
