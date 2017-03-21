@@ -56,8 +56,10 @@
         <p class="lbl-info">$<%= @listing.price %></p></br>
         <h6 class="lbl">Buyer:</h6>
         <p class="lbl-info"><%= link_to buyer_full_name, @listing.buyer %></p></br>
-        <h6 class="lbl">Price:</h6>
-        <p class="lbl-info">$<%= @listing.price %></p></br>
+        <h6 class="lbl">Category:</h6>
+        <p class="lbl-info"><%= @listing.category.name %></p></br>
+        <h6 class="lbl">Condition:</h6>
+        <p class="lbl-info"><%= @listing.condition.name %></p></br>
         <h6 class="lbl">Description:</h6>
         <p class="lbl-info"><%= @listing.description %></p></br>
         <h6 class="lbl">End Date:</h6>
