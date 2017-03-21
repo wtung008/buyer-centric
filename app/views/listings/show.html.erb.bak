@@ -1,0 +1,84 @@
+<div class="container-solid">
+
+<div class="row border-bottom">
+  <div class="col-6">
+    <h1><%= @listing.title %></h1>
+    <p><%= @listing.description %></p>
+    <%= link_to buyer_full_name, @listing.buyer %>
+  </div>
+  <div class="col-4">
+    <p>Offer Price: $<%= @listing.price %></p>
+    <p>End Date: <%= @listing.expiration.strftime("%A %b %d %Y") %></p>
+    <p>Time remaining:  <%= "#{(@listing.expiration > Time.now.utc ) ? "#{time_ago_in_words(@listing.expiration)}" : 'Expired'}" %></p>
+  </div>
+  <div class="col-2">
+    <% if !@listing.seller_id.present? %>
+
+      <% if user_signed_in? %>
+        <% if current_user.id == @listing.buyer.id %>
+          <%= link_to "Edit", edit_listing_path,  {class: "btn filterbtn new-listing btn-primary", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %> | <%= link_to "Delete", listing_path, class: "btn btn-danger", data: { confirm: "Are you sure" }, method: :delete %><br />
+        <% end %>
+
+        <% if !@listing.offers.pluck(:seller_id).include?(current_user.id) && @listing.buyer.id != current_user.id %>
+          <%= form_for [@listing, @offer] do |f| %>
+            <%= f.hidden_field :buyer_id, value: @listing.buyer_id %>
+            <%#= f.hidden_field :listing_id, value: @listing.id %>
+            <%#= f.hidden_field :seller_id, value: current_user.id %>
+            <%= f.submit "Got It!" %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% @listing.offers.order("created_at DESC").each do |offer| %>
+        <% if user_signed_in? %>
+          <% if @listing.buyer.id == current_user.id %>
+            <p><%= link_to offer.seller.first_name + ' ' + offer.seller.last_name, offer.seller %></p>
+            <p><%= link_to "Message", conversations_path(seller_id: current_user.id, buyer_id: offer.seller.id), method: 'post' %></p>
+            <%= form_for @listing do |f| %>
+              <%= f.hidden_field :seller_id, value: offer.seller.id %>
+              <%= f.submit "Accept" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% if user_signed_in? %>
+        <% if @listing.buyer.id == current_user.id %>
+          <%= link_to seller_full_name, @listing.seller %><br />
+          <%= link_to "Message", conversations_path(seller_id: current_user.id, buyer_id: @listing.seller.id), method: 'post' %><br />
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+  <div class="img-container">
+  <% if @listing.image.present? %>
+    <%= image_tag @listing.image, class: "img-fluid img-show" %>
+  <% end %>
+  </div>
+  </div>
+</div>
+
+<div class="row border-bottom">
+  <div class="col-12">
+<div id="map" data-latitude="<%= @user.latitude %>" data-longitude="<%= @user.longitude%>"></div>
+  </div>
+</div>
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Listing</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+    </div>
+  </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=initMap" async defer></script>

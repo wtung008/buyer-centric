@@ -3,33 +3,87 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a.btn-card {
-  margin: auto;
-  margin-bottom: 10px;
-  width: 90%;
+    margin: auto auto 10px;
+    width: 90%;
 }
 
-.card {
-  max-width: 30%;
-  min-width: 425px;
+div.card {
+    max-width: 400px;
+    min-width: 400px;
+    margin: 0 5px 10px 0 !important;
+    -webkit-box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
+    box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
 }
 
 div.card-block,
 div.card-footer {
-  padding: 10px;
+    padding: 10px;
 }
 
 .card-img-top {
-  margin: 10px;
+    margin: 10px;
 }
 
 .card-block {
-  border-bottom: 5px solid #001a49;
+    border-bottom: 5px solid #001a49;
 }
 
 .card-head {
-  display: inline-block;
+    display: inline-block;
 }
 
 h6.card-head {
+    float: right;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+  a {
+    margin-bottom: 0;
+  }
+}
+
+h1.show-name,
+h2.show-price {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+h2.show-price {
   float: right;
+}
+
+.listing {
+  background-color: white;
+  height: 100%;
+  padding: 15px;
+  -webkit-box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
+  box-shadow: 0 5px 18px -5px rgba(0,0,0,0.75);
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.info-box {
+  margin-top: 10px;
+}
+
+.lbl {
+  display: inline-block;
+}
+
+.lbl-info {
+  display: inline-block;
+}
+
+@media (max-width: 765px) {
+  div.card {
+    width: 500px;
+}
 }
