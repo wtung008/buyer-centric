@@ -14,11 +14,6 @@
                 <% end %>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <% if user_signed_in? %>
-                      <% if current_page?(root_path) %>
-                        <li class="nav-item">
-                            <%= link_to "Post", new_listing_path,  {class: "nav-link btn btn-attention raised head-btn", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
-                        </li>
-                      <% end %>
                       <li class="nav-item">
                           <%= link_to "Messages", conversations_path, class: "nav-link btn btn-primary raised head-btn" %>
                       </li>

@@ -9,7 +9,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <article class="float-left user-info">
-                <h1 class="float-left"><%= @user.first_name + ' ' + @user.last_name %></h1>
+                <h1 class="float-left"><%= @user.first_name + ' ' + @user.last_name %></h1><br />
                 <div class="star-rating" data-score=<%= @avg_review %>></div>
                 <em><%= pluralize(@reviews.length, "review") %></em><br/><br/>
                 <div id="map" data-latitude="<%= @user.latitude %>" data-longitude="<%= @user.longitude%>"></div>
