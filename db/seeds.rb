@@ -18,3 +18,7 @@ Condition.create(name: "New", description: 'A New item that has been opened.')
 Condition.create(name: "Used", description: 'A Used item that has been opened and used.')
 Condition.create(name: "Worn", description: 'A Worn item that has been used significantly.')
 Condition.create(name: "Broken", description: "A Broken item that doesn't work.")
+
+Faker::Placeholdit.image
+Faker::Name.name
+Faker::Listing.name

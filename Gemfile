@@ -80,3 +80,5 @@ gem 'normalize-rails'
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'faker', '~> 1.7', '>= 1.7.3'
