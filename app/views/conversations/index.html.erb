@@ -10,7 +10,7 @@
         <% end %>
         <div class="item">
           <%# if buyer.present %>
-            <%= link_to 'Message' + ' ' + buyer.first_name + ' ' + buyer.last_name, conversations_path(seller_id: current_user.id, buyer_id: buyer.id), method: 'post'%>
+            <%= link_to 'Message' + ' ' + buyer.first_name + ' ' + buyer.last_name, conversations_path(seller_id: current_user.id, buyer_id: buyer.id), method: 'post', class: "btn btn-attention raised"%>
           <%# end %>
         </div>
       <% end %>
