@@ -1,26 +1,38 @@
 <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse ">
-  <div class="container">
-  <div class="sb">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  <h1><a href="#" >WitGit</a></h1>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <%= form_tag listings_path, :method => 'get', class: "form-inline input-group my-2 my-lg-0 search", role: "search" do %>
-      <%= text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control mr-sm-2" %>
-      <%= button_tag(type: 'submit', :name => nil, class:"btn my-2 my-sm-0") do %>
-        <i class="fa fa-search" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-    <ul class="navbar-nav mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
+    <div class="container">
+        <div class="sb">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h1><%= link_to "WitGit", root_path, class: "" %></h1>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <%= form_tag listings_path, :method => 'get', class: "form-inline input-group my-2 my-lg-0 search", role: "search" do %>
+                  <%= text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control" %>
+                  <%= button_tag(type: 'submit', :name => nil, class:"btn my-2 my-sm-0") do %>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <% if user_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "Messages", conversations_path, class: "nav-link btn btn-primary raised" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Account", current_user, class: "nav-link btn btn-primary raised" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Logout", destroy_user_session_path, data: { confirm:"Are you sure?" }, method: :delete, class:"nav-link btn btn-primary raised" %>
+                    </li>
+                    <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-primary raised" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Register", new_user_registration_path, class: "nav-link btn btn-attention raised" %>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>

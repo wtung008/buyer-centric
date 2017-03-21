@@ -18,35 +18,137 @@
 @import "bootstrap";
 @import "font-awesome";
 @import url( 'https://fonts.googleapis.com/css?family=Pacifico');
-
 @font-face {
-  font-family:'magneto';
-  src:font-url('magnetob.ttf');
+    font-family: 'magneto';
+    src: font-url('magnetob.ttf');
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 120px;
 }
 
 nav {
     background-color: #001a49;
-  }
+}
 
 h1 a {
-  font-family: magneto;
-  color: #f3702d;
-  // text-shadow: -1px 0 #ef5223,0 1px #ef5223,1px 0 #ef5223,0 -1px #ef5223;
+    font-family: magneto;
+    color: #f3702d;
+    // text-shadow: -1px 0 #ef5223,0 1px #ef5223,1px 0 #ef5223,0 -1px #ef5223;
+}
+
+h1 a:hover {
+    color: #f47d40;
+    text-decoration: none;
 }
 
 .navbar-dark {
-      background-color: #001a49;
+    background-color: #001a49;
 }
 
 .search {
-  width: 100%;
-  margin-right: 10%;
+    width: 100%;
+    margin-right: 10%;
+}
+
+.search input {
+    height: 36px;
+    margin-right: 0;
+    background-color: white;
+    border: 0;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.search button {
+    margin-left: 0;
+    background-color: white;
+    border: 0;
+    border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .sb {
-  width: 100%;
+    width: 100%;
+}
+// Buttons
+
+.btn {
+    padding: 8px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.btn.active:focus,
+.btn:active:focus,
+.btn:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary.active,
+.btn-primary:active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn-primary.raised {
+    box-shadow: 0 3px 0 0 #007299;
+}
+
+.btn-primary.raised.active,
+.btn-primary.raised:active {
+    background: #33a6cc;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
+}
+
+.btn-attention {
+    background: #f3702d;
+    color: #ffffff;
+}
+
+.btn-attention.active,
+.btn-attention:active,
+.btn-attention:focus,
+.btn-attention:hover,
+.open > .dropdown-toggle.btn-attention {
+    background: #f47d40;
+}
+
+.btn-attention.active,
+.btn-attention:active {
+    background: #f3702d;
+    box-shadow: none;
+}
+
+.btn-attention.raised {
+    box-shadow: 0 3px 0 0 #b3600a;
+}
+
+.btn-attention.raised.active,
+.btn-attention.raised:active {
+    background: #f3702d;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
 }
