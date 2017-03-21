@@ -24,22 +24,20 @@
         <% end %>
 
         <% @listing.offers.order("created_at DESC").each do |offer| %>
-        <% if user_signed_in? %>
-        <% if @listing.buyer.id == current_user.id %>
-        <p><%= link_to offer.seller.first_name + ' ' + offer.seller.last_name, offer.seller, class: "btn btn-primary raised" %></p>
-        <%= form_for @listing do |f| %>
-        <%= f.hidden_field :seller_id, value: offer.seller.id %>
-        <%= f.submit "Accept", class: "btn btn-attention raised" %>
-        <% end %>
-        <% end %>
-        <% end %>
+          <% if user_signed_in? %>
+            <% if @listing.buyer.id == current_user.id %>
+              <p><%= link_to offer.seller.first_name + ' ' + offer.seller.last_name, offer.seller, class: "btn btn-primary raised" %></p>
+              <%= form_for @listing do |f| %>
+                <%= f.hidden_field :seller_id, value: offer.seller.id %>
+                <%= f.submit "Accept", class: "btn btn-attention raised" %>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
         <% else %>
-        <% if user_signed_in? %>
         <% if @listing.buyer.id == current_user.id %>
         <%= link_to seller_full_name, @listing.seller, class: "btn btn-primary raised" %>
         <%= link_to "Message", conversations_path(seller_id: current_user.id, buyer_id: @listing.seller.id), method: 'post',  class: "btn btn-attention raised"  %>
-        <% end %>
         <% end %>
         <% end %>
     </div>
