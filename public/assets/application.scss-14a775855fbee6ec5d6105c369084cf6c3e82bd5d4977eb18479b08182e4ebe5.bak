@@ -1,0 +1,177 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+*= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+@import "bootstrap";
+@import "font-awesome";
+@import url( 'https://fonts.googleapis.com/css?family=Pacifico');
+
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 150px;
+    background-color: #F8F8FF;
+    min-height: 100%;
+    // Sticky Footer
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    margin-top: 15px;
+}
+
+div.alert.fixed-top {
+    z-index: 1031;
+}
+
+.sitename {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
+    padding-left: 15px;
+    width: 302px;
+}
+
+a.sps--abv {
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 48px;
+    top: 35px;
+}
+
+a.sps--blw {
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 24px;
+    top: 0;
+}
+
+.sitename:hover {
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
+.navbar-brand {
+    color: white;
+}
+
+nav#navigation {
+    background-color: purple;
+    z-index: 2;
+}
+
+nav#filter {
+    background-color: white;
+}
+
+.bottom-shadow {
+    -webkit-box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 18px -2px rgba(0,0,0,0.75);
+}
+
+.spsdiv.sps--abv {
+    height: 150px;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+    width: 100%;
+}
+
+.spsdiv.sps--blw {
+    height: 60px;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+nav#navigation div.container {
+    height: 100%;
+    align-items: stretch;
+}
+
+div.nav {
+    width: 100%;
+}
+
+.searchform {
+  height: 41px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.searchbar {
+    border-radius: 0;
+    background-color: white;
+    border-right: 0;
+}
+
+button.searchbar {
+    border-left: 0;
+    font-size: 15px;
+    border: 1px solid white;
+}
+
+ul.nav.navbar-nav {
+    padding-left: 20px;
+}
+
+a.nav-link {
+    color: white;
+}
+
+footer {
+    width: 100%;
+    background-color: purple;
+    height: 100px;
+    color: white;
+
+    a {
+        color: white;
+    }
+}
+
+.opb {
+  border: 1px solid black;
+}
+
+.border-left {
+  border-left: 1px solid #bababa;
+}
+
+.card {
+  max-width: 326px;
+}
+// nav#filter.fixed-top {
+//   top: 150px;
+// }
+//
+// nav#filter.sps--blw {
+//   top: 50px;
+//   -moz-transition: all .5s;
+//   -ms-transition: all .5s;
+//   -webkit-transition: all .5s;
+//   transition: all .5s;
+// }

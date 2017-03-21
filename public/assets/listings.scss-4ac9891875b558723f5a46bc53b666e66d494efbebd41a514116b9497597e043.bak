@@ -1,0 +1,60 @@
+// Place all the styles related to the Listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.paddingfix {
+  padding-top: 70px;
+}
+
+div.fixed-top {
+    z-index: 1;
+}
+
+.custom-select {
+    border-radius: 0;
+    margin-right: 5px;
+}
+
+.filterbtn {
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+.new-listing {
+  color: black;
+}
+
+.card-deck {
+    width: 100%;
+}
+
+div.indexcard {
+  margin: 10px;
+  margin-left: 0px !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid purple;
+}
+
+.img-show {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#map {
+  margin-bottom: 15px;
+}
+
+.img-container {
+  width: 500px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-container img {
+  height: auto;
+  width: auto;
+}
