@@ -25,6 +25,7 @@
 
 body {
     padding-top: 120px;
+    background-color: #F8F8FF;
 }
 
 nav {
@@ -69,8 +70,12 @@ h1 a:hover {
 .sb {
     width: 100%;
 }
-// Buttons
 
+.fixed-top.filters {
+    top: auto;
+}
+
+// Buttons
 .btn {
     padding: 8px 24px;
     border: 0 none;

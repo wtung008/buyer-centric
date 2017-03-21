@@ -1,3 +1,35 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.btn-card {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.card {
+  max-width: 30%;
+  min-width: 425px;
+}
+
+div.card-block,
+div.card-footer {
+  padding: 10px;
+}
+
+.card-img-top {
+  margin: 10px;
+}
+
+.card-block {
+  border-bottom: 5px solid #001a49;
+}
+
+.card-head {
+  display: inline-block;
+}
+
+h6.card-head {
+  float: right;
+}

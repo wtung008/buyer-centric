@@ -1,1 +1,25 @@
+<% if @listings.blank? %>
+  <h4>No search results.</h4>
+<% end %>
+<% @listings.order("id DESC").limit(50).each do |l| %>
+  <% if l.buyer.present? %>
+    <% if !l.seller_id.present? && l.expiration > Time.now %>
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">
+          <h5 class="card-head"><%= truncate(l.title, length: 35) %></h5>
+          <h6 class="card-head">$ <%= l.price %></h6>
+        </h4>
+      </div>
+      <%= image_tag l.image.url(:medium), class:"card-img-top img-responsive" %>
+      <%= link_to "More Info", l, class: "btn btn-attention raised btn-card" %>
+        <div class="card-footer">
+          <p class="card-text text-muted">Posted by <%= link_to l.buyer.first_name + ' ' + l.buyer.last_name, user_path(l.buyer_id) %></p>
+          <small class="text-muted"><%= l.expiration.strftime("Expires on %m/%d/%Y" + " at %I:%M%p") %></small>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
+<!-- <p class="card-text"><%#= link_to l.buyer.first_name + ' ' + l.buyer.last_name, user_path(l.buyer_id) %></p> -->
