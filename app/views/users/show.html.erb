@@ -83,7 +83,7 @@
 
     <div class="tab-pane" id="history" role="tabpanel">
       <div class="card-deck">
-        <% if !@user.seller_listings.present? && !@user.buyer_listings.present? %>
+        <% if !@user.seller_listings.present? || !@user.buyer_listings.present? %>
           <h4>No history yet</h4>
         <% else %>
           <% @user.seller_listings.order('created_at DESC').each do |l| %>
