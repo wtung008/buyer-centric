@@ -4,7 +4,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <h1><%= link_to "WitGit", root_path, class: "" %></h1>
+            <h1><%= link_to "WitGit", root_path, class: "logo" %></h1>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <%= form_tag listings_path, :method => 'get', class: "form-inline input-group my-2 my-lg-0 search", role: "search" do %>
                   <%= text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control" %>

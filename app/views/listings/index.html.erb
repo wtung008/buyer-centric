@@ -1,19 +1,15 @@
 <div class="row">
     <div class="row">
         <form class="navbar-form form-inline input-group">
-
             <div class="col-3">
                 <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), class: "custom-select", include_blank: "Category" %>
             </div>
-
             <div class="col-3">
                 <%= select_tag "condition", options_from_collection_for_select(@conditions, "id", "name"), class: "custom-select", include_blank: "Condition" %>
             </div>
-
             <div class="col-3">
                 <button type="submit" name="filter" class="btn btn-primary raised">Filter</button>
             </div>
-
             <div class="col-3">
                 <% if user_signed_in? %>
                 <%= link_to "New Listing", new_listing_path,  {class: "btn new-listing btn-attention raised", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
